@@ -73,17 +73,18 @@ app.delete('/api/persons/:id', (req, res) => {
 app.put('/api/persons/:id', (req, res) => {
     const body = req.body
     const id = Number(req.params.id)
-    let person = persons.find(person => person.id === id)
-    console.log(person);
+    const person = persons.find(person => person.id === id);
+
     if (person) {
-        personBody = {
-            id: person.id,
+        console.log('update')
+        const personBody = {
+            id: id,
             name: body.name,
             number: body.number
         }
-        console.log(personBody)
-        person = personBody
-        res.json(person)
+        persons = persons.map(person => person.id === id ? personBody : person)
+        console.log(persons)
+        res.status(200).json(person)
 
     } else {
         res.status(204).end()
