@@ -47,6 +47,7 @@ app.get('/api/persons', (req, res) => {
 })
 
 
+
 app.get('/api/persons/:id', (req, res) => {
     const id = Number(req.params.id)
     const person = persons.find(person => person.id === id)
@@ -69,6 +70,25 @@ app.delete('/api/persons/:id', (req, res) => {
     }
 })
 
+app.put('/api/persons/:id', (req, res) => {
+    const body = req.body
+    const id = Number(req.params.id)
+    let person = persons.find(person => person.id === id)
+    console.log(person);
+    if (person) {
+        personBody = {
+            id: person.id,
+            name: body.name,
+            number: body.number
+        }
+        console.log(personBody)
+        person = personBody
+        res.json(person)
+
+    } else {
+        res.status(204).end()
+    }
+})
 
 
 app.post('/api/persons', (req, res) => {
