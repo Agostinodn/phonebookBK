@@ -34,6 +34,12 @@ let persons = [{
     }
 ]
 
+app.get('', (req, res) => {
+    res.send(`
+    <p>PHONE BOOK API -> /api/persons</p>
+    `)
+})
+
 app.get('/info', (req, res) => {
     res.send(`
     <p>Phone has info for ${persons.length} people</p>
