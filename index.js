@@ -3,7 +3,7 @@ const cors = require('cors')
 const app = express()
 app.use(express.json())
 app.use(cors())
-
+app.use(express.static('build'))
 
 const generateId = () => {
     const maxId = persons.length > 0 ? Math.max(...persons.map(n => n.id)) : 0
@@ -34,11 +34,6 @@ let persons = [{
     }
 ]
 
-app.get('', (req, res) => {
-    res.send(`
-    <p>PHONE BOOK API -> /api/persons</p>
-    `)
-})
 
 app.get('/info', (req, res) => {
     res.send(`
