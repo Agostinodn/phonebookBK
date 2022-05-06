@@ -1,6 +1,6 @@
 # phonebook
 
-CLick - [Phonebook App](https://phonebookapp2022.herokuapp.com/) 
+Go to - [Phonebook App](https://phonebookapp2022.herokuapp.com/) 
 
 
 
